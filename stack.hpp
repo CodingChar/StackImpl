@@ -1,68 +1,63 @@
 
-
-
-//#include<cstdlib>
-
-
 template <typename T>
-class Stack{
-    private:
-    
-        //Node Struct 
-        struct mNode {T value; mNode *nextNode;};
+class Stack
+{
+private:
+    // Node Struct
+    struct mNode
+    {
+        T value;
+        mNode *nextNode;
+    };
 
-        //Pointer to the node at the top of the stack
-        mNode *mTop = nullptr;
-        mNode *mAuxNode  = nullptr;
+    // Pointer to the node at the top of the stack
+    mNode *mTop = nullptr;
+    s mNode *mAuxNode = nullptr;
 
+    //unsigned long mNodeByteSize = sizeof(mNode);
 
-        void mClearStackMemory(){
-            mNode *curr = mTop;
-            while(curr != nullptr){
-                curr = mTop;
-                Pop();
-            }
+public:
+    // Returns the node at the stock of the stack
+    mNode *GetTopNode() const { return mTop; };
+
+    // Pushes an element to the top of the stack
+    void Push(T value)
+    {
+        mNode *pNewNode = new mNode;
+
+        pNewNode->value = value;
+        pNewNode->nextNode = mTop;
+
+        mTop = pNewNode;
+    }
+
+    void Clear()
+    {
+        mNode *curr = mTop;
+        while (curr != nullptr)
+        {
+            curr = mTop;
+            Pop();
         }
-        
-
-    public:
-
-        //Returns the node at the stock of the stack 
-        mNode* GetTopNode() const { return mTop; };
-
-        //Pushes an element to the top of the stack
-        void Push(T value){
-            mNode* newNode = new mNode;
-
-            newNode->value = value;
-            newNode->nextNode = mTop;
-
-            mTop = newNode;
-        }
+    }
 
 
-        void ClearStack(){
-            mClearStackMemory();
-        }
 
+    // Pops/Deletes the element
+    void Pop()
+    {
 
-        //Pops/Deletes the element 
-        void Pop(){
-            
+        mAuxNode = mTop->nextNode;
 
-            mAuxNode = mTop->nextNode;
+        delete mTop;
 
-            delete mTop;
+        mTop = mAuxNode;
 
-            mTop = mAuxNode;
+        mAuxNode = nullptr;
+    }
 
-            mAuxNode = nullptr;
-
-        }
-
-        ~Stack(){
-            mClearStackMemory();
-        }
-
+    ~Stack()
+    {
+        ClearStack();
+    }
 };
-

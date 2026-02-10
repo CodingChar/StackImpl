@@ -3,25 +3,26 @@
 #include<iostream>
 #include "stack.hpp"
 
+using namespace std;
+
 int main(){
 
-    Stack<int> stack; 
+
+
+    /*
     
-    stack.Push(10);
-    stack.Push(20);
-    stack.Push(40);
-    stack.Push(60);
-
-
-    std::cout<<stack.GetTopNode()->value<<"\n";
-
     
+        To use the Stack class, you need to do as follows:
 
 
-    //std::cout<<stack.GetTopNode()->value<<"\n";
+        Stack<GenericType> var; 
 
 
     
+    
+    */
+
+
 
 
     return 0; 
