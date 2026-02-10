@@ -1,5 +1,6 @@
 
 template <typename T>
+//Stack Class: Implementation of a Stack Data Structure 
 class Stack
 {
 private:
@@ -12,7 +13,7 @@ private:
 
     // Pointer to the node at the top of the stack
     mNode *mTop = nullptr;
-    s mNode *mAuxNode = nullptr;
+    mNode *mAuxNode = nullptr;
 
     //unsigned long mNodeByteSize = sizeof(mNode);
 
@@ -33,20 +34,23 @@ public:
 
     void Clear()
     {
-        mNode *curr = mTop;
-        while (curr != nullptr)
+        mNode *pCurr = mTop;
+        while (pCurr != nullptr)
         {
-            curr = mTop;
+            pCurr = mTop;
             Pop();
         }
     }
 
 
 
-    // Pops/Deletes the element
+    // Pops/Deletes the element at the top of the stack
     void Pop()
     {
 
+
+        if(mTop == nullptr) return;
+        
         mAuxNode = mTop->nextNode;
 
         delete mTop;
@@ -54,7 +58,11 @@ public:
         mTop = mAuxNode;
 
         mAuxNode = nullptr;
+    
     }
+
+    
+
 
     ~Stack()
     {
