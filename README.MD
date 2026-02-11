@@ -68,13 +68,13 @@ int main()
     myStack.Push(30);
 
     std::cout << "Top: "
-              << myStack.GetTopNode()->value
+              << myStack.GetTop()
               << std::endl;
 
     myStack.Pop();
 
     std::cout << "New Top: "
-              << myStack.GetTopNode()->value
+              << myStack.GetTop()
               << std::endl;
 
     myStack.Clear();
@@ -104,8 +104,8 @@ Removes the element at the top of the stack.
 
 ---
 
-### `mNode* GetTopNode() const`
-Returns a pointer to the top node.
+### `T& GetTop() const`
+Returns the value of the top node.
 
      May return `nullptr` if the stack is empty.
 
@@ -113,6 +113,11 @@ Returns a pointer to the top node.
 
 ### `void Clear()`
 Removes all elements from the stack iteratively using `Pop()`.
+
+---
+
+### `bool isEmpty()`
+Returns if the Stack is empty or not`Pop()`.
 
 **Time Complexity:** O(n)
 
