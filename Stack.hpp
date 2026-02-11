@@ -1,6 +1,7 @@
 
+#pragma once 
+
 template <typename T>
-//Stack Class: Implementation of a Stack Data Structure 
 class Stack
 {
 private:
@@ -13,59 +14,26 @@ private:
 
     // Pointer to the node at the top of the stack
     mNode *mTop = nullptr;
-    mNode *mAuxNode = nullptr;
 
-    //unsigned long mNodeByteSize = sizeof(mNode);
+public: 
 
-public:
-    // Returns the node at the stock of the stack
-    mNode *GetTopNode() const { return mTop; };
-
-    // Pushes an element to the top of the stack
-    void Push(T value)
-    {
-        mNode *pNewNode = new mNode;
-
-        pNewNode->value = value;
-        pNewNode->nextNode = mTop;
-
-        mTop = pNewNode;
-    }
-
-    void Clear()
-    {
-        mNode *pCurr = mTop;
-        while (pCurr != nullptr)
-        {
-            pCurr = mTop;
-            Pop();
-        }
-    }
-
-
-
-    // Pops/Deletes the element at the top of the stack
-    void Pop()
-    {
-
-
-        if(mTop == nullptr) return;
-        
-        mAuxNode = mTop->nextNode;
-
-        delete mTop;
-
-        mTop = mAuxNode;
-
-        mAuxNode = nullptr;
-    
-    }
+    inline T& GetTop() const {return mTop->value;};
 
     
+    inline bool isEmpty() const {return mTop == nullptr; };
 
 
-    ~Stack()
-    {
-        ClearStack();
+    void Push(T value);
+
+    void Pop(); 
+    
+    void Clear();
+
+
+
+    ~Stack(){
+        Clear();
     }
 };
+
+#include "Stack.tpp"
