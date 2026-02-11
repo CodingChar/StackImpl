@@ -13,7 +13,7 @@ This class allows you to store elements of any type (`int`, `float`, `std::strin
 - Safe memory deallocation
 - Full stack cleanup method (`Clear`)
 - Automatic destructor cleanup
-- Access to the top node (`GetTopNode`)
+- Access to the top node value (`GetTop`)
 
 ---
 
